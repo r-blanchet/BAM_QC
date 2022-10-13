@@ -1,0 +1,37 @@
+$schema: "https://json-schema.org/draft-07/schema#"
+description: Configuration file for Burden processing of a vcf
+properties:
+  prefix:
+    type: string
+    default: "alignmentQC"
+    description: prefix for output file
+  reference:
+    type: string
+    description: path to reference genome in FASTA format
+  CRAM_list:
+    type: string
+    description: Path to a file containing the path of the alignment files to be processed (1 per line)
+  samples_list:
+    type: string
+    description: Path to a file containing the names of the samples to be processed.
+  outdir:
+    type: string
+    default: "."
+    description: Path to output directory.
+  tempdir:
+    type: string
+    default: "."
+    description: Path to a directory where temporary files should be stored
+  regions:
+    type: string 
+    description: Path to a BED file containing regions of interest
+  sites_som:
+    type: string
+    description: Path to sites (in VCF format) to use for relatedness computation (recommended https://github.com/brentp/somalier/releases)
+
+required:
+  - CRAM_list
+  - reference
+  - regions
+  - sites_som
+  - samples_list
