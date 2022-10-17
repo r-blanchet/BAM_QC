@@ -1,0 +1,27 @@
+Config file /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/config/config.yaml is extended by additional config specified via the command line.
+No validator found for JSON Schema version identifier 'https://json-schema.org/draft-07/schema#'
+Defaulting to validator for JSON Schema version 'https://json-schema.org/draft/2020-12/schema'
+Note that schema file may not be validated correctly.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count    min threads    max threads
+-----  -------  -------------  -------------
+all          1              1              1
+total        1              1              1
+
+Select jobs to execute...
+
+[Fri Oct 14 17:00:38 2022]
+localrule all:
+    input: /SCRATCH-BIRD/users/blanchet-r/20221010.ArticleMarine/Insert/Test.insert_size_metrics.tsv, /SCRATCH-BIRD/users/blanchet-r/20221010.ArticleMarine/Stats/Test.INOFF.tsv, /SCRATCH-BIRD/users/blanchet-r/20221010.ArticleMarine/Stats/Test.Stats.tsv, /SCRATCH-BIRD/users/blanchet-r/20221010.ArticleMarine/Relatedness/Test.pairs.tsv
+    jobid: 0
+    reason: Forced execution
+    resources: tmpdir=/tmp
+
+[Fri Oct 14 17:00:45 2022]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: ../../../../LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.snakemake/log/2022-10-14T170036.828479.snakemake.log

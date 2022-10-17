@@ -15,10 +15,20 @@ configfile: os.path.join(config_dir,"config/config.yaml")
 
 validate(config,os.path.join(config_dir,"config/config.schema.yaml"))
 
+test_path=''
+is_test=config['test']
+if is_test:
+	test_path=config_dir
+	with open(os.path.join(config_dir,config["CRAM_list"]),'w') as cramlist:
+		cramlist.write(os.path.join(config_dir,'.test/data_test/Test.bam'))
+
 
 prefix=config["prefix"]
-CRAM_list=config["CRAM_list"]
-samples_list=config["samples_list"]
+CRAM_list=os.path.join(test_path,config["CRAM_list"])
+samples_list=os.path.join(test_path,config["samples_list"])
+reference=os.path.join(test_path,config['reference'])
+sites_som=os.path.join(test_path,config['sites_som'])
+regions=os.path.join(test_path,config['regions'])
 tempdir=config["tempdir"]
 outdir=config["outdir"]
 
@@ -40,14 +50,6 @@ with open(CRAM_list,'r') as cram_file:
 	for s in cram_file.readlines():
 		CRAMS.append(s.replace('\n',''))
 
-# module coverage:
-# 	snakefile:
-# 		os.path.join(WF_dir,"rules/GetCover.smk")
-# 	config:
-# 		config
-
-# use rule * from coverage as cov_*
-
 
 
 rule all:
@@ -55,7 +57,6 @@ rule all:
 		txt=os.path.join(outdir,"Insert/"+prefix+".insert_size_metrics.tsv"),
 		InOff=os.path.join(outdir,"Stats/"+prefix+".INOFF.tsv"),
 		stats=os.path.join(outdir,"Stats/"+prefix+".Stats.tsv"),
-		#tsv=rules.cov_all.input.tsv,
 		relate=os.path.join(outdir,"Relatedness/"+prefix+".pairs.tsv")
 
 
@@ -66,7 +67,7 @@ rule InsertCompute:
 		pdf=temp("{sample}.insert_size_histogram.pdf"),
 		txt=temp("{sample}.insert_size_metrics.txt"),
 	params:
-		reference=config["reference"],
+		reference=reference,
 	threads:
 		1
 	conda:
@@ -96,8 +97,8 @@ rule SamRun:
 		InOff=temp("{sample}.INOFF.tsv"),
 		Stats=temp("{sample}.Stats.tsv")
 	params:
-		reference=config["reference"],
-		regions=config["regions"],
+		reference=reference,
+		regions=regions,
 		mapq=30
 	conda:
 		samrun_env
@@ -155,8 +156,8 @@ rule somalier_extract:
 	conda:
 		somalier_env
 	params:
-		reference=config["reference"],
-		sites=config["sites_som"]
+		reference=reference,
+		sites=sites_som
 	shell:
 		"somalier extract --sites {params.sites} -f {params.reference} {input.cram}"
 

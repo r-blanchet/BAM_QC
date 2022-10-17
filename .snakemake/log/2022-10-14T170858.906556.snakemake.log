@@ -1,0 +1,11 @@
+Config file /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/config/config.yaml is extended by additional config specified via the command line.
+No validator found for JSON Schema version identifier 'https://json-schema.org/draft-07/schema#'
+Defaulting to validator for JSON Schema version 'https://json-schema.org/draft/2020-12/schema'
+Note that schema file may not be validated correctly.
+Building DAG of jobs...
+MissingInputException in rule InsertCompute in line 63 of /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/workflow/Snakefile.smk:
+Missing input files for rule InsertCompute:
+    output: HG00123.insert_size_histogram.pdf, HG00123.insert_size_metrics.txt
+    wildcards: sample=HG00123
+    affected files:
+        /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/data_test/Test.bam

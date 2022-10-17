@@ -1,0 +1,81 @@
+Config file /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/config/config.yaml is extended by additional config specified via the command line.
+No validator found for JSON Schema version identifier 'https://json-schema.org/draft-07/schema#'
+Defaulting to validator for JSON Schema version 'https://json-schema.org/draft/2020-12/schema'
+Note that schema file may not be validated correctly.
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count    min threads    max threads
+----------------  -------  -------------  -------------
+InsertCompute           1              1              1
+SamRun                  1              1              1
+StatsInserts            1              1              1
+all                     1              1              1
+catStats                1              1              1
+somalier_extract        1              1              1
+somalier_relate         1              1              1
+total                   7              1              1
+
+Select jobs to execute...
+
+[Fri Oct 14 17:11:54 2022]
+rule somalier_extract:
+    input: /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/Test.bam
+    output: HG00123.somalier
+    jobid: 6
+    reason: Forced execution
+    wildcards: sample=HG00123
+    resources: tmpdir=/tmp
+
+Activating conda environment: ../../../../CONDAS/users/blanchet-r/snmk-env-default/a9457844311afebbb97e97e80f3cd8bf
+
+[Fri Oct 14 17:11:54 2022]
+rule InsertCompute:
+    input: /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/Test.bam
+    output: HG00123.insert_size_histogram.pdf, HG00123.insert_size_metrics.txt
+    jobid: 2
+    reason: Forced execution
+    wildcards: sample=HG00123
+    resources: tmpdir=/tmp
+
+Activating conda environment: ../../../../CONDAS/users/blanchet-r/snmk-env-default/a7b71e03818d0177df97dfb0f992424f
+
+[Fri Oct 14 17:11:54 2022]
+rule SamRun:
+    input: /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/Test.bam
+    output: HG00123.INOFF.tsv, HG00123.Stats.tsv
+    jobid: 4
+    reason: Forced execution
+    wildcards: sample=HG00123
+    resources: tmpdir=/tmp
+
+Activating conda environment: ../../../../CONDAS/users/blanchet-r/snmk-env-default/d1c78646ad5ed113a30fe144b988b5d5
+[Fri Oct 14 17:11:54 2022]
+Error in rule somalier_extract:
+    jobid: 6
+    output: HG00123.somalier
+    conda-env: /CONDAS/users/blanchet-r/snmk-env-default/a9457844311afebbb97e97e80f3cd8bf
+    shell:
+        somalier extract --sites /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/sites.GRCh37.vcf.gz -f /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/GRCh37.75.chr20-200000-300000.fa /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/Test.bam
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Oct 14 17:11:55 2022]
+Finished job 4.
+1 of 7 steps (14%) done
+Terminating processes on user request, this might take some time.
+[Fri Oct 14 17:11:57 2022]
+Error in rule InsertCompute:
+    jobid: 2
+    output: HG00123.insert_size_histogram.pdf, HG00123.insert_size_metrics.txt
+    conda-env: /CONDAS/users/blanchet-r/snmk-env-default/a7b71e03818d0177df97dfb0f992424f
+    shell:
+        
+		SAMPLE=`samtools samples /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/Test.bam|cut -f1`
+		picard CollectInsertSizeMetrics -I /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/Test.bam -O ${SAMPLE}.insert_size_metrics.txt -H ${SAMPLE}.insert_size_histogram.pdf -M 0.5 -R /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.test/data_test/GRCh37.75.chr20-200000-300000.fa
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: ../../../../LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/.snakemake/log/2022-10-14T171151.877521.snakemake.log

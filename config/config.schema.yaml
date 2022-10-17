@@ -1,6 +1,10 @@
 $schema: "https://json-schema.org/draft-07/schema#"
 description: Configuration file for Burden processing of a vcf
 properties:
+  test:
+    type: boolean
+    default: false
+    description: Running test 
   prefix:
     type: string
     default: "alignmentQC"

@@ -1,0 +1,21 @@
+Config file /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/config/config.yaml is extended by additional config specified via the command line.
+No validator found for JSON Schema version identifier 'https://json-schema.org/draft-07/schema#'
+Defaulting to validator for JSON Schema version 'https://json-schema.org/draft/2020-12/schema'
+Note that schema file may not be validated correctly.
+UnknownTypein line 16 of /LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/workflow/Snakefile.smk:
+Unknown type 'bool' for validator with schema:
+    OrderedDict([('type', 'bool'),
+                 ('default', False),
+                 ('description', 'Running test')])
+
+While checking instance:
+    True
+  File "/LAB-DATA/BiRD/users/blanchet-r/AIC_Genet/Notebook/2022/20221010.ArticleMarine/workflow/Snakefile.smk", line 16, in <module>
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/validators.py", line 303, in validate
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/validators.py", line 278, in iter_errors
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/_validators.py", line 332, in properties
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/validators.py", line 295, in descend
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/validators.py", line 278, in iter_errors
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/_validators.py", line 321, in type
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/_validators.py", line 321, in <genexpr>
+  File "/CONDAS/users/blanchet-r/test/lib/python3.10/site-packages/jsonschema/validators.py", line 310, in is_type
